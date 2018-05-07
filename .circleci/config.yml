@@ -56,8 +56,11 @@ jobs:
                 sudo apt-get -qq install git-ftp
                 echo "'_$(git status -uno --porcelain | wc -l)_'"
                 git status -uno --porcelain
+                git config git-ftp.url "ftp://${FTP_HOST}:${FTP_PORT}/public_html"
+                git config git-ftp.user "${FTP_USER}"
+                git config git-ftp.password "${FTP_PASS}"
                 echo "Initiating Push"
-                git ftp push --auto-init --user "${FTP_USER}" --passwd "${FTP_PASS}" "ftp://${FTP_HOST}:${FTP_PORT}/public_html"
+                git ftp push --auto-init
                else
                 echo "Not master branch so not deploying"
                fi
