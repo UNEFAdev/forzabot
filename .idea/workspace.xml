@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e447a666-db67-4f6b-82f8-d3363b56ff62" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/bootstrap.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/cronjob.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/process.php" />
-      <change beforePath="$PROJECT_DIR$/bot.config-example" afterPath="$PROJECT_DIR$/bot.config-example" />
-      <change beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change beforePath="$PROJECT_DIR$/setWebhook.php" afterPath="$PROJECT_DIR$/setWebhook.php" />
-      <change beforePath="$PROJECT_DIR$/src/Telegram.php" afterPath="$PROJECT_DIR$/src/Telegram.php" />
+      <change beforePath="$PROJECT_DIR$/cronjob.php" afterPath="$PROJECT_DIR$/cronjob.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,18 +36,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cronjob.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="cronjob.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cronjob.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            <state relative-caret-position="442">
+              <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
               <folding>
-                <marker date="1525662711537" expanded="true" signature="193:214" ph="SELECT * FRO... canales" />
-                <marker date="1525662711537" expanded="true" signature="420:462" ph="UPDATE `canales`... " />
-                <marker date="1525662711537" expanded="true" signature="420:493" ph="UPDATE `canales`... " />
-                <marker date="1525662711537" expanded="true" signature="420:494" ph="UPDATE `canales`... " />
-                <marker date="1525662711537" expanded="true" signature="420:495" ph="UPDATE `canales`... " />
-                <marker date="1525662711537" expanded="true" signature="420:496" ph="UPDATE `canales`... " />
+                <marker date="1525664042554" expanded="true" signature="193:214" ph="SELECT * FRO... canales" />
+                <marker date="1525664042554" expanded="true" signature="462:504" ph="UPDATE `canales`... " />
+                <marker date="1525664042554" expanded="true" signature="462:535" ph="UPDATE `canales`... " />
+                <marker date="1525664042554" expanded="true" signature="462:536" ph="UPDATE `canales`... " />
+                <marker date="1525664042554" expanded="true" signature="462:537" ph="UPDATE `canales`... " />
+                <marker date="1525664042554" expanded="true" signature="462:538" ph="UPDATE `canales`... " />
+                <marker date="1525664042554" expanded="true" signature="683:769" ph="INSERT INTO canales_stats... " />
+                <marker date="1525664042554" expanded="true" signature="963:1021" ph="DELETE FROM canales_stats... " />
+                <marker date="1525664042554" expanded="true" signature="963:1087" ph="DELETE FROM canales_stats... " />
               </folding>
             </state>
           </provider>
@@ -82,12 +76,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bot.config" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bot.config" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot.config">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="8" column="20" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="20" />
+              <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -244,12 +251,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1525620527063</updated>
-      <workItem from="1525620528450" duration="13775000" />
+      <workItem from="1525620528450" duration="14995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13775000" />
+    <option name="totallyTimeSpent" value="14995000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
@@ -424,18 +431,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cronjob.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding>
-            <marker date="1525662711537" expanded="true" signature="193:214" ph="SELECT * FRO... canales" />
-            <marker date="1525662711537" expanded="true" signature="420:462" ph="UPDATE `canales`... " />
-            <marker date="1525662711537" expanded="true" signature="420:493" ph="UPDATE `canales`... " />
-            <marker date="1525662711537" expanded="true" signature="420:494" ph="UPDATE `canales`... " />
-            <marker date="1525662711537" expanded="true" signature="420:495" ph="UPDATE `canales`... " />
-            <marker date="1525662711537" expanded="true" signature="420:496" ph="UPDATE `canales`... " />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -450,8 +453,26 @@
     <entry file="file://$PROJECT_DIR$/bot.config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="20" />
+          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cronjob.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding>
+            <marker date="1525664042554" expanded="true" signature="193:214" ph="SELECT * FRO... canales" />
+            <marker date="1525664042554" expanded="true" signature="462:504" ph="UPDATE `canales`... " />
+            <marker date="1525664042554" expanded="true" signature="462:535" ph="UPDATE `canales`... " />
+            <marker date="1525664042554" expanded="true" signature="462:536" ph="UPDATE `canales`... " />
+            <marker date="1525664042554" expanded="true" signature="462:537" ph="UPDATE `canales`... " />
+            <marker date="1525664042554" expanded="true" signature="462:538" ph="UPDATE `canales`... " />
+            <marker date="1525664042554" expanded="true" signature="683:769" ph="INSERT INTO canales_stats... " />
+            <marker date="1525664042554" expanded="true" signature="963:1021" ph="DELETE FROM canales_stats... " />
+            <marker date="1525664042554" expanded="true" signature="963:1087" ph="DELETE FROM canales_stats... " />
+          </folding>
         </state>
       </provider>
     </entry>
