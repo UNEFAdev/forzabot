@@ -48,7 +48,7 @@ jobs:
                 echo "'_$(git status -uno --porcelain | wc -l)_'"
                 git status -uno --porcelain
                 echo "Initiating Push"
-                git ftp init --user "${FTP_USER}" --passwd "${FTP_PASS}" "ftp://${FTP_HOST}:${FTP_PORT}/public_html"
+                git ftp init --force --user "${FTP_USER}" --passwd "${FTP_PASS}" "ftp://${FTP_HOST}:${FTP_PORT}/public_html"
                else
                 echo "Not master branch so not deploying"
                fi
