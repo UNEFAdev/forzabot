@@ -34,14 +34,14 @@ jobs:
       - run: sudo mv composer.phar /usr/local/bin/composer
       - run: composer install -n --prefer-dist
       # Put config file
-      - run: echo "BOT_NAME = '${BOT_NAME}'\n" >> bot.config
-      - run: echo "BOT_TOKEN = '${BOT_TOKEN}'\n" >> bot.config
-      - run: echo "WEBHOOK_URL = '${BOT_WEBHOOK}'\n" >> bot.config
-      - run: echo "CHANNEL_ID_ERROR_LOGS = '${BOT_CHANNEL_LOGS}'\n" >> bot.config
-      - run: echo "DB_HOST = '${BOT_DB_HOST}'\n" >> bot.config
-      - run: echo "DB_NAME = '${BOT_DB_NAME}'\n" >> bot.config
-      - run: echo "DB_USER = '${BOT_DB_USER}'\n" >> bot.config
-      - run: echo "DB_PASS = '${BOT_DB_PASS}'\n" >> bot.config
+      - run: echo "BOT_NAME = '${BOT_NAME}'" >> bot.config
+      - run: echo "BOT_TOKEN = '${BOT_TOKEN}'" >> bot.config
+      - run: echo "WEBHOOK_URL = '${BOT_WEBHOOK}'" >> bot.config
+      - run: echo "CHANNEL_ID_ERROR_LOGS = '${BOT_CHANNEL_LOGS}'" >> bot.config
+      - run: echo "DB_HOST = '${BOT_DB_HOST}'" >> bot.config
+      - run: echo "DB_NAME = '${BOT_DB_NAME}'" >> bot.config
+      - run: echo "DB_USER = '${BOT_DB_USER}'" >> bot.config
+      - run: echo "DB_PASS = '${BOT_DB_PASS}'" >> bot.config
 
       - save_cache:
           paths:
@@ -53,14 +53,17 @@ jobs:
           command: |
                if [ "${CIRCLE_BRANCH}" == "master" ]; then
                 sudo apt-get update
-                sudo apt-get -qq install git-ftp
+                curl https://raw.githubusercontent.com/git-ftp/git-ftp/master/git-ftp > git-ftp
+                sudo chmod 755 git-ftp
+                export PATH=".:$PATH"
                 echo "'_$(git status -uno --porcelain | wc -l)_'"
                 git status -uno --porcelain
                 git config git-ftp.url "ftp://${FTP_HOST}:${FTP_PORT}/public_html"
                 git config git-ftp.user "${FTP_USER}"
                 git config git-ftp.password "${FTP_PASS}"
                 echo "Initiating Push"
-                git ftp push --auto-init
+                git-ftp --version
+                git ftp push --auto-init --force
                else
                 echo "Not master branch so not deploying"
                fi
