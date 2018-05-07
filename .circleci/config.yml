@@ -43,8 +43,8 @@ jobs:
           name: Deploy to host if branch is master
           command: |
                if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                apt-get update
-                apt-get -qq install git-ftp
+                sudo apt-get update
+                sudo apt-get -qq install git-ftp
                 echo "'_$(git status -uno --porcelain | wc -l)_'"
                 git status -uno --porcelain
                 echo "Initiating Push"
