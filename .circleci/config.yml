@@ -33,6 +33,15 @@ jobs:
       - run: php composer.phar self-update
       - run: sudo mv composer.phar /usr/local/bin/composer
       - run: composer install -n --prefer-dist
+      # Put config file
+      - run: echo "BOT_NAME = '${BOT_NAME}'\n" >> bot.config
+      - run: echo "BOT_TOKEN = '${BOT_TOKEN}'\n" >> bot.config
+      - run: echo "WEBHOOK_URL = '${BOT_WEBHOOK}'\n" >> bot.config
+      - run: echo "CHANNEL_ID_ERROR_LOGS = '${BOT_CHANNEL_LOGS}'\n" >> bot.config
+      - run: echo "DB_HOST = '${BOT_DB_HOST}'\n" >> bot.config
+      - run: echo "DB_NAME = '${BOT_DB_NAME}'\n" >> bot.config
+      - run: echo "DB_USER = '${BOT_DB_USER}'\n" >> bot.config
+      - run: echo "DB_PASS = '${BOT_DB_PASS}'\n" >> bot.config
 
       - save_cache:
           paths:
