@@ -8,18 +8,13 @@
         }
     ],
     "require": {
-    	"php": "^5.6.0",
-        "phpunit/phpunit": "^5.1"
+    	"php": ">5.6.0",
+        "phpunit/phpunit": ">5.1"
     },
 
         "autoload": {
         "psr-4": {
             "AlexR1712\\": "src/"
         }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "php setWebhook.php"
-        ]
     }
 }
