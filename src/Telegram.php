@@ -8,9 +8,9 @@ namespace AlexR1712;
 
 class Telegram
 {
-    private $token;
     private $webhook;
     private $apiUrl;
+    private $config;
 
     public function __construct($pwrtelegram = false)
     {
@@ -18,6 +18,7 @@ class Telegram
          * Can use PWRTelegram for active more power of telegram.
          */
         $config = parse_ini_file('bot.config');
+        $this->config = $config;
         $this->apiUrl = ($pwrtelegram) ? 'https://api.pwrtelegram.xyz/bot'.$config['BOT_TOKEN'].'/' : 'https://api.telegram.org/bot'.$config['BOT_TOKEN'].'/';
         $this->webhook = $config['WEBHOOK_URL'];
     }
@@ -74,7 +75,9 @@ class Telegram
             return false;
         } elseif ($http_code != 200) {
             $response = json_decode($response, true);
-            error_log("La solicitud falló con el error {$response['error_code']}: {$response['description']}\n");
+            $message = "La solicitud falló con el error {$response['error_code']}: {$response['description']}\n";
+            error_log($message);
+            $this->sendMessage($this->config['CHANNEL_ID_ERROR_LOGS'], '<pre>'.$message.'</pre>', ['parse_mode' => 'HTML']);
             if ($http_code == 401) {
                 throw new Exception('El token provisto es inválido');
             }
@@ -106,7 +109,9 @@ class Telegram
         if (!$parameters) {
             $parameters = [];
         } elseif (!is_array($parameters)) {
-            error_log("Los parámetros deben ser un arreglo/matriz\n");
+            $message = "Los parámetros deben ser un arreglo/matriz\n";
+            error_log($message);
+            $this->sendMessage($this->config['CHANNEL_ID_ERROR_LOGS'], '<pre>'.$message.'</pre>', ['parse_mode' => 'HTML']);
 
             return false;
         }
@@ -167,6 +172,13 @@ class Telegram
         $parameters['text'] = $text;
 
         return $this->apiRequest('sendMessage', $parameters);
+    }
+
+    public function getChatMembersCount($chat_id)
+    {
+        $parameters = [];
+        $parameters['chat_id'] = $chat_id;
+        return $this->apiRequest('getChatMembersCount', $parameters);
     }
 
     public function setWebhook($certificate = null, $max_connections = null, $allowed_updates = [])
