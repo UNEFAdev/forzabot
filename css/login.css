@@ -34,7 +34,7 @@ p.subtitle {
   padding-top: 1rem;
 }
 
-iframe#telegram-login-unefabot {
-    margin: 0 auto;
-    display: block;
+iframe {
+  margin: 0 auto;
+  display: block;
 }
