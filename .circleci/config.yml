@@ -35,6 +35,7 @@ jobs:
       - run: composer install -n --prefer-dist
       # Put config file
       - run: echo "BOT_NAME = '${BOT_NAME}'" >> bot.config
+      - run: echo "BOT_USERNAME = '${BOT_USERNAME}'" >> bot.config
       - run: echo "BOT_TOKEN = '${BOT_TOKEN}'" >> bot.config
       - run: echo "WEBHOOK_URL = '${BOT_WEBHOOK}'" >> bot.config
       - run: echo "CHANNEL_ID_ERROR_LOGS = '${BOT_CHANNEL_LOGS}'" >> bot.config
