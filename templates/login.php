@@ -22,6 +22,18 @@
             <figure class="avatar">
               <img src="/images/login_tg.png" style="width: 110px;">
             </figure>
+            <!-- Error -->
+            <?php if (isset($_GET['error'])) : ?>
+            <article class="message is-danger">
+              <div class="message-header">
+                <p>Error</p>
+              </div>
+              <div class="message-body">
+                Usted no tiene permiso de acceder a esta pagina, su usuario no esta activo o su rol no se lo permite.
+              </div>
+            </article>          
+            <?php endif; ?>            
+
             <form>
               <div class="field">
                 <div class="control">

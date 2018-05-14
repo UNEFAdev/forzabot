@@ -10,80 +10,19 @@
    <!-- Bulma Version 0.6.2-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" integrity="sha256-2k1KVsNPRXxZOsXQ8aqcZ9GOOwmJTMoOB5o5Qp1d6/s=" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="../css/admin.css">
+    <script src='https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js'></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
 </head>
 <body>
 
   <!-- START NAV -->
-  <nav class="navbar is-white">
-    <div class="container">
-      <div class="navbar-brand">
-        <a class="navbar-item brand-text" href="../">
-          Forza System
-        </a>
-        <div class="navbar-burger burger" data-target="navMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <div id="navMenu" class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="admin.php">
-            Inicio
-          </a>
-          <a class="navbar-item" href="admin.php">
-            Canales
-          </a>
-          <a class="navbar-item" href="admin.php">
-            Estadisticas
-          </a>
-          <a class="navbar-item" href="admin.php">
-            Enviar Mensaje
-          </a>
-          <a href="/telegram/login.php?logout=1" class="navbar-item">Cerrar Sesion</a>
-        </div>
-
-      </div>
-    </div>
-  </nav>
+    <?php require 'nav.php'; ?>
   <!-- END NAV -->
   <div class="container">
     <div class="columns">
       <div class="column is-3">
-        <aside class="menu">
-          <p class="menu-label">
-            General
-          </p>
-          <ul class="menu-list">
-            <li><a class="is-active">Dashboard</a></li>
-            <li><a>Customers</a></li>
-          </ul>
-          <p class="menu-label">
-            Administration
-          </p>
-          <ul class="menu-list">
-            <li><a>Team Settings</a></li>
-            <li>
-              <a>Manage Your Team</a>
-              <ul>
-                <li><a>Members</a></li>
-                <li><a>Plugins</a></li>
-                <li><a>Add a member</a></li>
-              </ul>
-            </li>
-            <li><a>Invitations</a></li>
-            <li><a>Cloud Storage Environment Settings</a></li>
-            <li><a>Authentication</a></li>
-          </ul>
-          <p class="menu-label">
-            Transactions
-          </p>
-          <ul class="menu-list">
-            <li><a>Payments</a></li>
-            <li><a>Transfers</a></li>
-            <li><a>Balance</a></li>
-          </ul>
-        </aside>
+        <?php require 'aside.php'; ?>
       </div>
       <div class="column is-9">
         <nav class="breadcrumb" aria-label="breadcrumbs">
@@ -110,13 +49,17 @@
           <div class="tile is-ancestor has-text-centered">
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">439k</p>
+                <p class="title">
+                  <?php echo $audiencia; ?>
+                </p>
                 <p class="subtitle">Audiencia</p>
               </article>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">59k</p>
+                <p class="title">
+                  <?php echo $canales; ?>
+                </p>
                 <p class="subtitle">Canales</p>
               </article>
             </div>
@@ -128,15 +71,17 @@
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">19</p>
+                <p class="title">
+                  <?php echo $usuarios; ?>
+                </p>
                 <p class="subtitle">Usuarios en Forza</p>
               </article>
             </div>
           </div>
         </section>
         <div class="columns">
-          <div class="column is-6">
-            <div class="card events-card">
+          <div class="column is-12">
+            <div class="card events-card" id="container">
               <header class="card-header">
                 <p class="card-header-title">
                   Events
@@ -149,6 +94,7 @@
               </header>
               <div class="card-table">
                 <div class="content">
+                  <!-- 
                   <table class="table is-fullwidth is-striped">
                     <tbody>
                       <tr>
@@ -197,7 +143,7 @@
                         <td><a class="button is-small is-primary" href="#">Action</a></td>
                       </tr>
                     </tbody>
-                  </table>
+                  </table> -->
                 </div>
               </div>
               <footer class="card-footer">
@@ -205,62 +151,13 @@
               </footer>
             </div>        
           </div>
-          <div class="column is-6">
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  Inventory Search
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <div class="control has-icons-left has-icons-right">
-                    <input class="input is-large" type="text" placeholder="">
-                    <span class="icon is-medium is-left">
-                      <i class="fa fa-search"></i>
-                    </span>
-                    <span class="icon is-medium is-right">
-                      <i class="fa fa-check"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <header class="card-header">
-                <p class="card-header-title">
-                  User Search
-                </p>
-                <a href="#" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                  </span>
-                </a>
-              </header>
-              <div class="card-content">
-                <div class="content">
-                  <div class="control has-icons-left has-icons-right">
-                    <input class="input is-large" type="text" placeholder="">
-                    <span class="icon is-medium is-left">
-                      <i class="fa fa-search"></i>
-                    </span>
-                    <span class="icon is-medium is-right">
-                      <i class="fa fa-check"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
   <script async type="text/javascript" src="../js/bulma.js"></script>
+
+  <script type="text/javascript" src="js/pages/dashboard.js"></script>
+
 </body>
 </html>
