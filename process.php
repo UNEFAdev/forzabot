@@ -1,4 +1,10 @@
 <?php
+
+header('Access-Control-Allow-Origin: *');
+
+header('Access-Control-Allow-Methods: GET, POST');
+
+header("Access-Control-Allow-Headers: X-Requested-With");
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
   // return only the headers and not the content
   // only allow CORS if we're doing a GET - i.e. no saving for now.
