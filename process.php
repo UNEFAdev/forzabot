@@ -59,10 +59,19 @@ switch ($request['type']) {
             $link = "\n\n👁 [Ver mas..]({$request['post_url']})";
         }
 
-        foreach ($request['channels'] as $channel) {
+        // Get channels id
+
+        $statement = $db->prepare('SELECT canal_id FROM canales WHERE LOWER(categoria) = LOWER(:category)');
+        $statement->execute([
+            'category' => $request['category']
+        ]);
+
+        $rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
+
+        foreach ($rows as $channel) {
             $message = '🆕 ';
             $message .= "*{$request['title']}*\n{$request['message']}{$link}";
-            $responses[] = $bot->sendMessage($channel, $message, $args);
+            $responses[] = $bot->sendMessage($channel['canal_id'], $message, $args);
         }
         break;
     case 'ALERT':
