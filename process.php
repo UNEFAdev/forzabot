@@ -61,11 +61,15 @@ switch ($request['type']) {
 
         // Get channels id
 
-        $statement = $db->prepare('SELECT canal_id FROM canales WHERE LOWER(categoria) = LOWER(:category)');
-        $statement->execute([
-            'category' => $request['category']
-        ]);
-
+        if (strtolower($request['category']) == 'todo') {
+            $statement = $db->prepare('SELECT canal_id FROM canales');
+            $statement->execute();
+        } else {
+            $statement = $db->prepare('SELECT canal_id FROM canales WHERE LOWER(categoria) = LOWER(:category)');
+            $statement->execute([
+                'category' => $request['category']
+            ]);
+        }
         $rows = $statement->fetchAll(\PDO::FETCH_ASSOC);
 
         foreach ($rows as $channel) {
